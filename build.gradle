@@ -1,0 +1,52 @@
+group = "$group"
+version = "$version"
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven { url "https://repo.spring.io/snapshot" }
+  maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+  if (project(':graphi-java')) {
+    compile project(':graphi-java')
+  }
+}
+
+
+subprojects {
+  group = "$group"
+  version = "$version"
+
+  apply plugin: 'java'
+  apply plugin: 'maven'
+
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+  }
+
+  dependencies {
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+  }
+}
+
+
+project(':graphi-spring-boot-autoconfigure') {
+  dependencies {
+    compile project.parent
+  }
+}
+
