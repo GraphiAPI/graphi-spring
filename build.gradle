@@ -15,8 +15,8 @@ repositories {
 }
 
 dependencies {
-  if (project(':graphi-java')) {
-    compile project(':graphi-java')
+  if (project(':graphi4j')) {
+    compile project(':graphi4j')
   }
 }
 

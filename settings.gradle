@@ -1,6 +1,12 @@
 rootProject.name = 'graphi-spring'
 include ':graphi-spring-boot-autoconfigure'
 include ':graphi-spring-boot-starter'
+
+if (file('../graphi4j')) {
+  include ':graphi4j'
+  project(':graphi4j').projectDir = file('../graphi4j')
+}
+
 if (file('../graphi-java')) {
   include ':graphi-java'
   project(':graphi-java').projectDir = file('../graphi-java')
